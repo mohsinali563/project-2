@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Montserrat:wght@700&family=Nanum+Gothic&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/3047206314.js" crossorigin="anonymous"></script>
+    <title>My-Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nanum+Gothic&display=swap');
+         html{
+            scroll-behavior: smooth;
+         }
+        body {
+            margin: 0;
+            font-family: ' Montserrat', sans-serif;
+        }
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            align-items: center;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            align-items: center;
+            padding: 20px 40px 10px;
+            background: #fff;
+
+        }
+
+        header h1 {
+            grid-column: span 6;
+            font-family: 'Lora', serif;
+        }
+
+        header nav {
+            grid-column: 7/span 12;
+            justify-self: end;
+        }
+
+        header nav a {
+            text-decoration: none;
+            margin-right: 30px;
+            font-size: 1.2em;
+            color: #333;
+            font-weight: 500;
+            position: relative;
+        }
+
+        header nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 100%;
+            width: 0;
+            height: 2px;
+            background-color: #a8a8a8;
+            transition: width .5s, left .5s;
+        }
+
+        header nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        main {
+            background-image: url(https://cdn.pixabay.com/photo/2023/09/02/16/43/ai-generated-8229239_1280.jpg);
+            /* background-image: url(https://static1.s123-cdn-static-a.com/ready_uploads/media/179697/800_5ceb938399a65.jpg); */
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 30px;
+
+
+
+        }
+
+        main h1 {
+            margin-top: 60px;
+            font-size: 3em;
+            line-height: 1.2;
+        }
+
+        main h1 span {
+            font-size: 3rem;
+        }
+
+        main p {
+
+            width: 50%;
+            margin: 30px auto;
+            font-size: 1.2em;
+
+        }
+
+        .myButton {
+            grid-column: 6/8;
+            box-shadow: inset 0px 0px 7px 0px #7676b8;
+            background-color: transparent;
+            border-radius: 11px;
+            border: 2px solid #87a9ed;
+            display: inline-block;
+            cursor: pointer;
+            color: #d2d1eb;
+            font-family: Verdana;
+            font-size: 13px;
+            font-style: italic;
+            padding: 14px 40px;
+            text-decoration: none;
+            text-shadow: 1px 1px 3px #1c1cc9;
+            margin-bottom: 40px;
+            transition: 1s;
+        }
+
+        .myButton:hover {
+            background-color: #335ca8b7;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+
+        #project {
+            padding: 40px;
+        }
+
+        #project h2 {
+            grid-column: span 3;
+            text-align: center;
+            font-size: 2em;
+            font-weight: 800;
+        }
+
+        #project span {
+            color: #1b3e57;
+        }
+
+        .project-grid img {
+            width: 350px;
+            height: 200px;
+        }
+
+        .project-grid {
+            margin: 60px 40px;
+            list-style-type: none;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+
+        }
+
+        .project-grid li {
+            position: relative;
+            border: 15px solid #b7d4e2;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .project-grid div.back {
+            transform: rotateY(90deg);
+            width: 330px;
+            height: 180px;
+            padding: 10px 10px;
+            text-align: center;
+            background: #1b3e5773;
+        }
+
+        .project-grid div.front {
+            position: absolute;
+        }
+
+        .project-grid li:hover div.front {
+            animation: twril 0.2s ease-in forwards;
+        }
+
+        .project-grid li:hover div.back {
+            animation: twril 0.2s 0.2s ease-out forwards reverse;
+        }
+
+        @keyframes twril {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(90deg);
+            }
+        }
+
+        #about {
+            padding: 40px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #346577;
+            grid-gap: 20px;
+
+        }
+
+        #about .head h3 {
+            font-size: 2em;
+            color: #fff;
+        }
+
+        #about .head p {
+            font-size: 1.2em;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            color: #fff;
+        }
+
+        #about img {
+            justify-self: center;
+        }
+
+        .btn {
+
+            box-shadow: 0px 4px 14px -7px #276873;
+            background-color: transparent;
+            border-radius: 15px;
+            border: 1px solid #4295cc;
+            display: inline-block;
+            cursor: pointer;
+            color: #c7c2c2;
+            font-family: Verdana;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 34px;
+            text-decoration: none;
+            text-shadow: 0px -1px 0px #3d768a;
+            margin-top: 10px;
+
+        }
+
+        .btn:hover {
+            background-color: transparent;
+        }
+
+        .btn:active {
+            position: relative;
+            top: 1px;
+        }
+
+        #contact {
+            display: grid;
+            padding: 60px 40px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        #contact h2 {
+            grid-column: span 2;
+            text-align: center;
+            font-size: 2em;
+            padding-bottom: 30px;
+        }
+
+        #contact .social {
+            display: grid;
+            grid-template-columns: 0.1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            color: #346577;
+        }
+
+        #contact .social a {
+            text-decoration: none;
+            align-self: center;
+            color: #000;
+        }
+
+        #contact .social h3 {
+            grid-column: span 2;
+            grid-row: span 1;
+
+        }
+
+        #contact form {
+            display: grid;
+            grid-template-columns: 1fr;
+            font-size: 1em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        #contact form input {
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        #contact form textarea {
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        #contact form .button {
+            justify-self: center;
+            padding: 8px 16px;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            background: #346577;
+            color: #e6dfdf;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #e6dfdf;
+            padding-right: 10px;
+
+        }
+
+        .button {
+            background: #a8c7db;
+            background-image: -webkit-linear-gradient(top, #a8c7db, #3584b5);
+            background-image: -moz-linear-gradient(top, #a8c7db, #3584b5);
+            background-image: -ms-linear-gradient(top, #a8c7db, #3584b5);
+            background-image: -o-linear-gradient(top, #a8c7db, #3584b5);
+            background-image: linear-gradient(to bottom, #a8c7db, #3584b5);
+            -webkit-border-radius: 22;
+            -moz-border-radius: 22;
+            border-radius: 22px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 19px;
+            padding: 14px 26px 14px 26px;
+            border: solid #3790c7 2px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #1484c9;
+            background-image: -webkit-linear-gradient(top, #1484c9, #8dbfe0);
+            background-image: -moz-linear-gradient(top, #1484c9, #8dbfe0);
+            background-image: -ms-linear-gradient(top, #1484c9, #8dbfe0);
+            background-image: -o-linear-gradient(top, #1484c9, #8dbfe0);
+            background-image: linear-gradient(to bottom, #1484c9, #8dbfe0);
+            text-decoration: none;
+        }
+
+        @media screen and (max-width:950px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+        }
+
+        @media screen and (max-width:850px) {
+
+            #contact {
+                display: block;
+            }
+
+            #contact .social {
+                display: block;
+
+            }
+
+            #contact .social a {
+
+                display: none;
+
+            }
+
+            #contact .social i {
+
+                margin-left: 60px;
+
+            }
+
+            #contact .social h3 {
+                text-align: center;
+            }
+
+
+        }
+
+        @media screen and (max-width:800px) {
+
+            header h1 {
+                grid-column: span 12;
+                grid-template-rows: 1fr 1fr;
+                text-align: center;
+            }
+
+            header nav {
+
+                grid-column: 1/span 12;
+                justify-self: center;
+            }
+
+            #about {
+                display: block;
+                text-align: center;
+            }
+
+        }
+
+        @media screen and (max-width:580px) {
+            #project {
+
+                padding: 10px;
+            }
+
+
+            #contact .social i {
+
+                margin-left: 10px;
+            }
+        }
+
+        @media screen and (max-width:415px) {
+            #project {
+                padding-left: 5px;
+            }
+
+            #project ul {
+                margin-left: 0;
+                padding-left: 0;
+
+            }
+
+
+        }
+
+        @media screen and (max-width:600px) {
+            main h1 {
+
+                font-size: 1.5em;
+                line-height: 1;
+            }
+
+            main h1 span {
+
+                font-size: 1rem;
+            }
+
+            main p {
+
+                width: 90%;
+                margin: 30px auto;
+                font-size: 1em;
+
+            }
+            header nav {
+                justify-self:start;
+            }
+            header nav a{
+                display: block;
+                padding-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mohsin Ali</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#project">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main id="home">
+
+        <h1>HI, I am Mohsin Ali <br>
+            <span>A Web Developer</span>
+        </h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum placeat maiores beatae aliquid fuga
+            voluptates eius dolorum praesentium nostrum. Voluptatem aperiam totam nisi, consequatur atque ad possimus
+            eveniet labore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id pariatur quidem consequatur
+            autem debitis aperiam nam nihil voluptatum necessitatibus sit vel, eligendi quisquam quos impedit optio
+            labore suscipit reiciendis assumenda.
+        </p>
+        <a href="#" class="myButton">Read More</a>
+    </main>
+    <section id="project">
+        <h2>My <span>projects</span></h2>
+        <ul class="project-grid">
+            <li>
+                <div class="front">
+                    <img src="imgs/1.png" alt="">
+                </div>
+                <div class="back">
+                    <h3>My Portfolio</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum aperiam odit maxime, asperiores
+                        deleniti illum? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam sint rem
+                        reprehenderit deserunt, error delectus.</p>
+                </div>
+            </li>
+            <li>
+                <div class="front">
+                    <img src="imgs/2.png" alt="">
+                </div>
+                <div class="back">
+                    <h3>Grid Design</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum aperiam odit maxime, asperiores
+                        deleniti illum?</p>
+                </div>
+            </li>
+            <li>
+                <div class="front">
+                    <img src="imgs/3.png" alt="">
+                </div>
+                <div class="back">
+                    <h3>Photogrphy</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum aperiam odit maxime, asperiores
+                        deleniti illum?</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="about" class="about-grid">
+        <div class="head">
+            <h3>About Me</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut at unde ipsam dolorem quae distinctio
+                pariatur magnam libero in? Dicta nisi tenetur sequi ab ipsam, quas repellendus voluptas dignissimos
+                provident?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate a minima at
+                laboriosam. Aut beatae suscipit quo odio debitis reprehenderit libero provident placeat quisquam, porro
+                fugiat ut praesentium dolores.</p>
+            <a href="#" class="btn">Download CV</a>
+        </div>
+
+        <img src="imgs/profile-1.png" alt="profile-pic">
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="social">
+            <h3>Follow Me</h3>
+            <i class="fa-brands fa-facebook fa-3x"></i> <a href="">Facebook</a>
+            <i class="fa-brands fa-twitter fa-3x"></i><a href="">Twitter</a>
+            <i class="fa-brands fa-instagram fa-3x"></i><a href="">Instagram</a>
+            <i class="fa-brands fa-linkedin fa-3x"></i><a href="">LinkedIn</a>
+            <i class="fa-brands fa-github fa-3x"></i><a href="">Github</a>
+        </div>
+        <form>
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Username">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="E-mail">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Subject">
+            <textarea name="text" id="" cols="30" rows="10"></textarea>
+            <input type="submit" class="button">
+        </form>
+    </section>
+    <footer>
+        <a href="#home">Home</a>
+        <a href="#project">Project</a>
+        <a href="about">About</a>
+        <a href="contact">Contact</a>
+        <p>Copyright 2023</p>
+        <p>Created by Mohsin Ali</p>
+    </footer>
+</body>
+
+</html>
